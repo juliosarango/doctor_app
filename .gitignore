@@ -1,0 +1,52 @@
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+*.so
+
+# Distribution / packaging
+app/.Python
+venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+media/
+*.egg-info/
+.installed.cfg
+*.egg
+cache/
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+app/.history
+
+.env
+
+sonar-project.properties
+.scannerwork/
+local.yml
+
+# IDEs
+.vscode
+.history/
+.coverage/
+.coverage
+
+# CERTS
+*.pem
+
+# BINARIES
+celerybeat-schedule
+
