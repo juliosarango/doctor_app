@@ -43,6 +43,8 @@ serializer.errors
 Toda la documentación de las generic views está disponible en la siguiente [url](https://www.cdrf.co/)
 
 ### ViewSets
+Los Viewsets en DRF nos ayudan a simplificar la creación de vistas al reutilizar una clase que agrupa el código necesario para manejar diferentes operaciones sobre un recurso, como listar, crear, actualizar y eliminar. Al integrarlos con los routers, evitamos la necesidad de definir cada URL manualmente, ya que el router se encarga de generar todas las rutas de manera automática.
+
 
 
 

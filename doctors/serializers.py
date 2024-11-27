@@ -7,6 +7,20 @@ class DoctorSerializer(serializers.ModelSerializer):
         model = Doctor
         fields = "__all__"
 
+    def validate_email(self, value):
+        # Validar campos específicos. En este caso email
+        if value.endswith("@gmail.com"):
+            return value
+        raise serializers.ValidationError("El email debe ser de @gmail.com")
+
+    def validate(self, attrs):
+        # Podemos acceder a todos los campos del modelo
+        if len(attrs["contact_number"]) < 6 and attrs["is_on_vacation"] == True:
+            raise serializers.ValidationError(
+                "Por favor ingresa un número de contacto válido antes de irte de vacaciones"
+            )
+        return super().validate(attrs)
+
 
 class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
