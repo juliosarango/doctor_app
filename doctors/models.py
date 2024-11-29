@@ -6,10 +6,14 @@ class Doctor(models.Model):
     last_name = models.CharField(max_length=100)
     qualification = models.CharField(max_length=100)
     contact_number = models.CharField(max_length=15)
+    graduation_date = models.DateField(default=None, null=True)
     email = models.EmailField()
     address = models.TextField()
     biography = models.TextField()
     is_on_vacation = models.BooleanField(default=False)
+
+    def __str__(self) -> str:
+        return f"{self.first_name} {self.last_name}"
 
 
 class Department(models.Model):

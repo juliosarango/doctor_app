@@ -1,11 +1,35 @@
+from datetime import date
 from .models import Doctor, Department, DoctorAvailability, MedicalNote
 from rest_framework import serializers
 
+from bookings.serializers import AppointmentSerializer
+
 
 class DoctorSerializer(serializers.ModelSerializer):
+
+    appointments = AppointmentSerializer(many=True, read_only=True)
+
+    experience = serializers.SerializerMethodField()
+
+    def get_experience(self, obj) -> int:
+        return date.today().year - obj.graduation_date.year
+
     class Meta:
         model = Doctor
-        fields = "__all__"
+        fields = [
+            "id",
+            "first_name",
+            "last_name",
+            "qualification",
+            "contact_number",
+            "graduation_date",
+            "experience",
+            "email",
+            "address",
+            "biography",
+            "is_on_vacation",
+            "appointments",
+        ]
 
     def validate_email(self, value):
         # Validar campos específicos. En este caso email

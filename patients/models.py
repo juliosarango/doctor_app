@@ -10,6 +10,9 @@ class Patient(models.Model):
     address = models.TextField()
     medical_history = models.TextField()
 
+    def __str__(self) -> str:
+        return f"{self.first_name} {self.last_name}"
+
 
 class Insurance(models.Model):
     patient = models.ForeignKey(
